@@ -56,6 +56,11 @@ enum SENSOR_DEV {
 	sensor_dev_pmic = 0x19,
 	sensor_dev_ina233 = 0x20,
 	sensor_dev_isl69254iraz_t = 0x21,
+
+    sensor_dev_isl69254 = ,
+	sensor_dev_tmp75 = ,
+	sensor_dev_nvme = ,	
+	sensor_dev_m24128 = ,
 	sensor_dev_max
 };
 

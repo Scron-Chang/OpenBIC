@@ -4,6 +4,18 @@
 #include "stdint.h"
 
 /*  define config for sensors  */
+#define TMP_P0V9A_ASICA1_ADDR (0xC8 >> 1)
+#define TMP_P0V9A_ASICA2_ADDR (0xB0 >> 1)
+#define ISL69254_TEMP_OFFSET 0x00 //not check
+#define SSD0_ADDR (0xD4 >> 1)
+#define SSD0_OFFSET 0x00
+#define TMP75_ADDR (0x92 >> 1)
+#define TMP75_ASIC_ADDR (0x98 >> 1)
+#define TMP75_TEMP_OFFSET 0x00
+#define TMP_M24128_ADDR (0xA8 >> 1)
+#define M24128_TEMP_OFFSET 0x00 //not check
+
+/*  define config for sensors  */
 #define TMP75_MB_ADDR (0x92 >> 1)
 #define TMP75_ASIC_ADDR (0x98 >> 1)
 #define ASIC_ADDR (0x00 >> 1) // TBU
