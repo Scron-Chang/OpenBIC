@@ -9,7 +9,7 @@
 **************************************************************************************************/
 adc_asd_init_arg adc_asd_init_args[] = { [0] = { .is_init = false } };
 
-ina233_init_arg ina233_init_args[] = {
+ina233_init_arg ina230_init_args[] = {
 	[0] = { .is_init = false },
 	[1] = { .is_init = false },
 };
@@ -25,7 +25,7 @@ isl69254iraz_t_pre_arg isl69254iraz_t_pre_read_args[] = {
 /**************************************************************************************************
  *  PRE-HOOK/POST-HOOK FUNC
  **************************************************************************************************/
-bool pre_ina233_read(uint8_t sensor_num, void *args)
+bool pre_ina230_read(uint8_t sensor_num, void *args)
 {
 	ARG_UNUSED(args);
 	ina233_init_arg *init_arg =
