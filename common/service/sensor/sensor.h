@@ -54,7 +54,7 @@ enum SENSOR_DEV {
 	sensor_dev_ast_fan = 0x16,
 	sensor_dev_tmp431 = 0x18,
 	sensor_dev_pmic = 0x19,
-	sensor_dev_ina230 = 0x20,
+	sensor_dev_ina233 = 0x20,
 	sensor_dev_isl69254iraz_t = 0x21,
 };
 

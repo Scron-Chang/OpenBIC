@@ -22,11 +22,14 @@ sensor_cfg plat_sensor_config[] = {
 	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  NULL },
 	{ SENSOR_NUM_TEMP_SSD0, sensor_dev_nvme, I2C_BUS5, SSD0_ADDR, SSD0_OFFSET, post_access, 0,
-	  0, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1], NULL, NULL, NULL },//TMUX136
+	  0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1],
+	  NULL, NULL, NULL },
 	{ SENSOR_NUM_TEMP_SSD1, sensor_dev_nvme, I2C_BUS6, SSD0_ADDR, SSD0_OFFSET, post_access, 0,
-	  0, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1], NULL, NULL, NULL },//TMUX136
+	  0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1],
+	  NULL, NULL, NULL },
 	{ SENSOR_NUM_TEMP_SSD2, sensor_dev_nvme, I2C_BUS7, SSD0_ADDR, SSD0_OFFSET, post_access, 0,
-	  0, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1], NULL, NULL, NULL },//TMUX136  	  	  
+	  0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1],
+	  NULL, NULL, NULL },
 
 	// ADC *
 	{ SENSOR_NUM_VOL_P12V_STBY, sensor_dev_ast_adc, ADC_PORT1, NONE, NONE, stby_access, 66, 10,
@@ -58,24 +61,24 @@ sensor_cfg plat_sensor_config[] = {
 	  &adc_asd_init_args[0] },	  
 
 	// INA230 *
-	{ SENSOR_NUM_VOL_P12V_E1S, sensor_dev_ina230, I2C_BUS3, INA230_12V_ADDR, SMBUS_VOL_CMD,
-	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina230_read, NULL,
-	  NULL, NULL, &ina230_init_args[0] },
-	{ SENSOR_NUM_VOL_PVPP_AB_R, sensor_dev_ina230, I2C_BUS3, INA230_PVPP_ADDR, SMBUS_VOL_CMD,
-	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina230_read, NULL,
-	  NULL, NULL, &ina230_init_args[1] },
-	{ SENSOR_NUM_CUR_P12V_E1S, sensor_dev_ina230, I2C_BUS3, INA230_12V_ADDR, SMBUS_CUR_CMD,
-	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina230_read, NULL,
-	  NULL, NULL, &ina230_init_args[0] },
-	{ SENSOR_NUM_CUR_PVPP_AB_R, sensor_dev_ina230, I2C_BUS3, INA230_PVPP_ADDR, SMBUS_CUR_CMD,
-	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina230_read, NULL,
-	  NULL, NULL, &ina230_init_args[1] },	  	  
-	{ SENSOR_NUM_PWR_P12V_E1S, sensor_dev_ina230, I2C_BUS3, INA230_12V_ADDR, SMBUS_PWR_CMD,
-	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina230_read, NULL,
-	  NULL, NULL, &ina230_init_args[0] },
-	{ SENSOR_NUM_PWR_PVPP_AB_R, sensor_dev_ina230, I2C_BUS3, INA230_PVPP_ADDR, SMBUS_PWR_CMD,
-	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina230_read, NULL,
-	  NULL, NULL, &ina230_init_args[1] },
+	{ SENSOR_NUM_VOL_P1V2_E1S, sensor_dev_ina233, I2C_BUS3, INA230_12V_ADDR, SMBUS_VOL_CMD,
+	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina233_read, NULL,
+	  NULL, NULL, &ina233_init_args[0] },
+	{ SENSOR_NUM_VOL_PVPP_AB_R, sensor_dev_ina233, I2C_BUS3, INA230_PVPP_ADDR, SMBUS_VOL_CMD,
+	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina233_read, NULL,
+	  NULL, NULL, &ina233_init_args[1] },
+	{ SENSOR_NUM_CUR_P12V_E1S, sensor_dev_ina233, I2C_BUS3, INA230_12V_ADDR, SMBUS_CUR_CMD,
+	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina233_read, NULL,
+	  NULL, NULL, &ina233_init_args[0] },
+	{ SENSOR_NUM_CUR_PVPP_AB_R, sensor_dev_ina233, I2C_BUS3, INA230_PVPP_ADDR, SMBUS_CUR_CMD,
+	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina233_read, NULL,
+	  NULL, NULL, &ina233_init_args[1] },	  	  
+	{ SENSOR_NUM_PWR_P12V_E1S, sensor_dev_ina233, I2C_BUS3, INA230_12V_ADDR, SMBUS_PWR_CMD,
+	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina233_read, NULL,
+	  NULL, NULL, &ina233_init_args[0] },
+	{ SENSOR_NUM_PWR_PVPP_AB_R, sensor_dev_ina233, I2C_BUS3, INA230_PVPP_ADDR, SMBUS_PWR_CMD,
+	  stby_access, 0, 0, SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, pre_ina233_read, NULL,
+	  NULL, NULL, &ina233_init_args[1] },
 
 
 	// VR temperature
