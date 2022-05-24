@@ -29,13 +29,13 @@ sensor_cfg plat_sensor_config[] = {
 	  0, 0, SENSOR_INIT_STATUS, pre_nvme_read, &mux_conf_addr_0xe2[1], NULL, NULL, NULL },//TMUX136  	  	  
 
 	// ADC *
-	{ SENSOR_NUM_VOL_P12V_STBY, sensor_dev_ast_adc, ADC_PORT1, NONE, NONE, stby_access, 1, 1,
+	{ SENSOR_NUM_VOL_P12V_STBY, sensor_dev_ast_adc, ADC_PORT1, NONE, NONE, stby_access, 66, 10,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },
-	{ SENSOR_NUM_VOL_P3V3_STBY, sensor_dev_ast_adc, ADC_PORT2, NONE, NONE, stby_access, 1, 1,
+	{ SENSOR_NUM_VOL_P3V3_STBY, sensor_dev_ast_adc, ADC_PORT2, NONE, NONE, stby_access, 2, 1,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },
-	{ SENSOR_NUM_VOL_P12V_E1S, sensor_dev_ast_adc, ADC_PORT3, NONE, NONE, stby_access, 1, 1,
+	{ SENSOR_NUM_VOL_P12V_E1S, sensor_dev_ast_adc, ADC_PORT3, NONE, NONE, stby_access, 66, 10,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },
 	{ SENSOR_NUM_VOL_VDD_P1V2, sensor_dev_ast_adc, ADC_PORT6, NONE, NONE, stby_access, 1, 1,
@@ -44,7 +44,7 @@ sensor_cfg plat_sensor_config[] = {
 	{ SENSOR_NUM_VOL_VDD_P1V8, sensor_dev_ast_adc, ADC_PORT7, NONE, NONE, stby_access, 1, 1,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },
-	{ SENSOR_NUM_VOL_P3V3_E1S, sensor_dev_ast_adc, ADC_PORT13, NONE, NONE, stby_access, 1, 1,
+	{ SENSOR_NUM_VOL_P3V3_E1S, sensor_dev_ast_adc, ADC_PORT13, NONE, NONE, stby_access, 2, 1,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },
 	{ SENSOR_NUM_VOL_PVPP_AB, sensor_dev_ast_adc, ADC_PORT11, NONE, NONE, stby_access, 1, 1,
@@ -53,7 +53,7 @@ sensor_cfg plat_sensor_config[] = {
 	{ SENSOR_NUM_VOL_PVTT_AB, sensor_dev_ast_adc, ADC_PORT9, NONE, NONE, stby_access, 1, 1,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },
-	{ SENSOR_NUM_VOL_P5V_STBY, sensor_dev_ast_adc, ADC_PORT8, NONE, NONE, stby_access, 1, 1,
+	{ SENSOR_NUM_VOL_P5V_STBY, sensor_dev_ast_adc, ADC_PORT8, NONE, NONE, stby_access, 711, 200,
 	  SAMPLE_COUNT_DEFAULT, 0, SENSOR_INIT_STATUS, NULL, NULL, NULL, NULL,
 	  &adc_asd_init_args[0] },	  
 
