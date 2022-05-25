@@ -4,6 +4,8 @@
 #include "hal_i2c.h"
 #include "plat_hook.h"
 
+#include "i2c-mux-tca9548.h"
+
 /**************************************************************************************************
  * INIT ARGS
 **************************************************************************************************/
@@ -17,6 +19,13 @@ ina233_init_arg ina233_init_args[] = {
 /**************************************************************************************************
  *  PRE-HOOK/POST-HOOK ARGS
  **************************************************************************************************/
+struct tca9548 mux_conf_addr_0xe2[8] = {
+	[0] = { .addr = 0xe2, .chan = 0 }, [1] = { .addr = 0xe2, .chan = 1 },
+	[2] = { .addr = 0xe2, .chan = 2 }, [3] = { .addr = 0xe2, .chan = 3 },
+	[4] = { .addr = 0xe2, .chan = 4 }, [5] = { .addr = 0xe2, .chan = 5 },
+	[6] = { .addr = 0xe2, .chan = 6 }, [7] = { .addr = 0xe2, .chan = 7 },
+};
+
 isl69254iraz_t_pre_arg isl69254iraz_t_pre_read_args[] = {
 	[0] = { 0x0 },
 	[1] = { 0x1 },
@@ -84,5 +93,25 @@ bool pre_isl69254iraz_t_read(uint8_t sensor_num, void *args)
 		printf("[%s] i2c write fail  ret: %d\n", __func__, ret);
 		return false;
 	}
+	return true;
+}
+
+/* NVME pre read function
+ *
+ * set mux
+ *
+ * @param sensor_num sensor number
+ * @param args pointer to struct tca9548
+ * @param reading pointer to reading from previous step
+ * @retval true if setting mux is successful.
+ * @retval false if setting mux fails.
+ */
+bool pre_nvme_read(uint8_t sensor_num, void *args)
+{
+	if (!args)
+		return false;
+	if (!tca9548_select_chan(sensor_num, (struct tca9548 *)args))
+		return false;
+
 	return true;
 }

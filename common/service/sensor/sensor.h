@@ -56,7 +56,6 @@ enum SENSOR_DEV {
 	sensor_dev_pmic = 0x19,
 	sensor_dev_ina233 = 0x20,
 	sensor_dev_isl69254iraz_t = 0x21,
-	sensor_dev_max
 };
 
 typedef struct _sensor_val {
