@@ -1,9 +1,10 @@
 #include <zephyr.h>
 #include <stdio.h>
+#include "ipmi.h"
+#include "ipmb.h"
 #include "plat_isr.h"
 #include "libipmi.h"
 #include "plat_gpio.h"
-#include "plat_ipmi.h"
 #include "plat_class.h"
 #include "plat_sensor_table.h"
 #include "plat_power_seq.h"
@@ -48,6 +49,10 @@ void control_power_off_sequence()
 	gpio_set(PWRGD_CARD_PWROK, POWER_OFF);
 	gpio_set(ASIC_DEV_RST_N, POWER_OFF);
 
+	// Disable i2c synchronized during error recovery/ASIC i2c pin
+	gpio_set(I2CS_SRSTB_GPIO, POSITIVE_DEACTIVATE);
+	gpio_set(LSFT_SMB_DIMM_EN, POSITIVE_DEACTIVATE);
+
 	is_power_off = power_off_handler(DIMM_POWER_OFF_STAGE1);
 
 	if (is_power_off == true) {
@@ -81,11 +86,13 @@ int check_power_stage(uint8_t check_mode, uint8_t check_seq)
 	int ret = 0;
 	switch (check_mode) {
 	case ENABLE_POWER_MODE: // Check power on stage
+		power_on_seq += 1;
 		if (gpio_get(check_seq) != POWER_ON) {
 			ret = -1;
 		}
 		break;
 	case DISABLE_POWER_MODE: // Check power off stage
+		power_off_seq -= 1;
 		if (gpio_get(check_seq) != POWER_OFF) {
 			ret = -1;
 		}
@@ -97,16 +104,23 @@ int check_power_stage(uint8_t check_mode, uint8_t check_seq)
 	}
 
 	if (ret == -1) { // Addsel if check power stage fail
-		addsel_msg_t sel_msg;
+		bool is_addsel_success = false;
+		common_addsel_msg_t sel_msg;
+		memset(&sel_msg, 0, sizeof(common_addsel_msg_t));
+
+		sel_msg.InF_target = CL_BIC_IPMB;
 		sel_msg.sensor_type = IPMI_OEM_SENSOR_TYPE_OEM_C3;
 		sel_msg.event_type = IPMI_EVENT_TYPE_SENSOR_SPEC;
 		sel_msg.sensor_number = SENSOR_NUM_POWER_ERROR;
 		sel_msg.event_data1 =
 			((check_mode == ENABLE_POWER_MODE) ? IPMI_OEM_EVENT_OFFSET_EXP_PWRON_FAIL :
 								   IPMI_OEM_EVENT_OFFSET_EXP_PWROFF_FAIL);
-		sel_msg.event_data2 = check_seq;
+		sel_msg.event_data2 =
+			((check_mode == ENABLE_POWER_MODE) ? power_on_seq : power_off_seq);
 		sel_msg.event_data3 = get_board_id();
-		if (!add_sel_evt_record(&sel_msg)) {
+
+		is_addsel_success = common_add_sel_evt_record(&sel_msg);
+		if (is_addsel_success == false) {
 			printf("[%s] control power event addsel fail  mode: 0x%x  seq: 0x%x\n",
 			       __func__, check_mode, check_seq);
 		}
@@ -209,6 +223,11 @@ bool power_on_handler(uint8_t initial_stage)
 			break;
 		case BOARD_POWER_ON_STAGE:
 			control_power_stage(ENABLE_POWER_MODE, ASIC_DEV_RST_N);
+
+			// Enable i2c synchronized during error recovery/ASIC i2c pin
+			gpio_set(I2CS_SRSTB_GPIO, POSITIVE_ACTIVATE);
+			gpio_set(LSFT_SMB_DIMM_EN, POSITIVE_ACTIVATE);
+
 			check_power_ret = 0;
 			enable_power_on_handler = false;
 			break;
