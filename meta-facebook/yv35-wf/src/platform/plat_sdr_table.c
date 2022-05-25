@@ -507,7 +507,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 
 		SELF_I2C_ADDRESS << 1, // owner id
 		0x00, // owner lun
-		SENSOR_NUM_TEMP_TMP75, // sensor number
+		SENSOR_NUM_TEMP_CXL_CNTR, // sensor number
 
 		IPMI_SDR_ENTITY_ID_SYS_BOARD, // entity id
 		0x00, // entity instance
