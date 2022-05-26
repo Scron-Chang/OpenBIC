@@ -137,14 +137,17 @@ jobs:
     if: ${{ inputs.nightly != true }}
     steps:
 
-    - name: Get PR File List 
+    - name: Get Diff File List 
       shell: bash
       run: |
-        echo "Check GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
-        URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
-        curl -s -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" $URL | jq -r '.[] | .filename' > git_diff.log
-        cat git_diff.log 
-  
+        mkdir scron-openbic-folder && cd scron-openbic-folder
+        git clone https://github.com/Scron-Chang/OpenBIC.git
+        cd OpenBIC
+        git remote add MFZ_REPO https://github.com/MouchenHung-QUANTA/OpenBIC.git
+        git fetch MFZ_REPO
+        git diff origin/dev_scron_Test_actions..MFZ_REPO/MFZ_WC --name-only > ../../git_diff.log
+        cat ../../git_diff.log
+
     - name: Check for C/CPP Sources
       shell: bash
       run : |
