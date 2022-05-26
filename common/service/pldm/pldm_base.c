@@ -19,7 +19,7 @@ uint8_t set_tid(void *mctp_inst, uint8_t *buf, uint16_t len, uint8_t *resp, uint
 
 	*resp_len = 1;
 	resp_p->completion_code = (sizeof(*req_p) != len) ? PLDM_BASE_CODES_ERROR_INVALID_LENGTH :
-								  PLDM_BASE_CODES_SUCCESS;
+							    PLDM_BASE_CODES_SUCCESS;
 	return PLDM_SUCCESS;
 }
 
