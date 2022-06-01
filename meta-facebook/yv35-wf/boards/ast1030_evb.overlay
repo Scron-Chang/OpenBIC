@@ -56,8 +56,8 @@
   pinctrl-0 = <&pinctrl_i2c6_default>;
   status = "okay";
   clock-frequency = <I2C_BITRATE_FAST>;
-};
 
+};
 
 &i2c8 {
   pinctrl-0 = <&pinctrl_i2c8_default>;
@@ -122,6 +122,26 @@
 
 &uart5 {
   current-speed = <57600>;
+};
+
+&gpio0_a_d {
+  aspeed,persist-maps = <0xB9090008>;
+};
+
+&gpio0_e_h {
+  aspeed,persist-maps = <0x0c870402>;
+};
+
+&gpio0_i_l {
+  aspeed,persist-maps = <0x00000400>;
+};
+
+&gpio0_m_p {
+  aspeed,persist-maps = <0xc000c019>;
+};
+
+&gpio0_q_t {
+  aspeed,persist-maps = <0x00000001>;
 };
 
 &jtag1{
