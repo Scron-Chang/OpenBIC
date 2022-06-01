@@ -3,6 +3,7 @@
 #include "plat_isr.h"
 #include "plat_class.h"
 #include "power_status.h"
+#include "plat_power_seq.h"
 
 static void dev_power_init(void)
 {
@@ -18,7 +19,9 @@ void pal_pre_init()
 
 void pal_set_sys_status()
 {
-
+	set_CL_DC_status(FM_POWER_EN);
+	set_DC_status(PWRGD_EXP_PWROK_R);
+	control_power_sequence();
 }
 
 #define DEF_PROJ_GPIO_PRIORITY 61
