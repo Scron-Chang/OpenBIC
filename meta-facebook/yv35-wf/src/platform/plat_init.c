@@ -21,7 +21,8 @@ void pal_set_sys_status()
 {
 	set_CL_DC_status(FM_POWER_EN);
 	set_DC_status(PWRGD_EXP_PWROK_R);
-	control_power_sequence();
+	//control_power_sequence();
+	control_e1s_power_sequence();
 }
 
 #define DEF_PROJ_GPIO_PRIORITY 61
