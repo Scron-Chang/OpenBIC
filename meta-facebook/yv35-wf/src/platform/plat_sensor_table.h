@@ -8,7 +8,7 @@
 #define VR_P0V9A_ASICA2_ADDR (0xB0 >> 1)
 #define SSD0_ADDR (0xD4 >> 1)
 #define SSD0_OFFSET 0x00
-#define TMP75_MB_ADDR (0x92 >> 1)
+#define TMP75_MB_ADDR (0x98 >> 1)
 #define TMP75_ASIC_ADDR (0x98 >> 1)
 #define ASIC_ADDR (0x00 >> 1) // TBU
 #define INA230_12V_ADDR (0x8A >> 1)

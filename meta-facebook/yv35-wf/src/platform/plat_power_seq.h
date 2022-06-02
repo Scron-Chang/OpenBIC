@@ -11,6 +11,9 @@
 #define CHKPWR_DELAY_MSEC 100
 #define DEV_RESET_DELAY_USEC 100
 
+#define E1S_DEV_PWR_OFF 0
+#define E1S_DEV_PWR_ON  1
+
 enum CONTROL_POWER_MODE {
 	ENABLE_POWER_MODE = 0x00,
 	DISABLE_POWER_MODE,
@@ -68,5 +71,6 @@ void control_power_stage(uint8_t control_mode, uint8_t control_seq);
 int check_power_stage(uint8_t check_mode, uint8_t check_seq);
 bool power_on_handler(uint8_t initial_stage);
 bool power_off_handler(uint8_t initial_stage);
+void e1s_power_control(void *control_type, void *dummy0, void *dummy1);
 
 #endif
