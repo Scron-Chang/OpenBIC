@@ -63,13 +63,10 @@ void control_power_off_sequence()
 
 void control_power_stage(uint8_t control_mode, uint8_t control_seq)
 {
-	printf("%s:%d, control_mode = %d, control_seq = %d\n", __FILE__, __LINE__, control_mode, control_seq);
-	printf("%s:%d, control_seq = %d, gpio_get(control_seq) = %d\n", __FILE__, __LINE__, control_seq, gpio_get(control_seq));
 	switch (control_mode) {
 	case ENABLE_POWER_MODE: // Control power on stage
 		if (gpio_get(control_seq) != POWER_ON) {
 			gpio_set(control_seq, POWER_ON);
-			printf("%s:%d, control_seq = %d, gpio_get(control_seq) = %d\n", __FILE__, __LINE__, control_seq, gpio_get(control_seq));
 		}
 		break;
 	case DISABLE_POWER_MODE: // Control power off stage
@@ -136,11 +133,9 @@ bool power_on_handler(uint8_t initial_stage)
 	int check_power_ret = -1;
 	bool enable_power_on_handler = true;
 	uint8_t control_stage = initial_stage;
-	printf("%s:%d\n", __FILE__, __LINE__);
 	while (enable_power_on_handler == true) {
 		switch (control_stage) { // Enable VR power machine
 		case ASIC_POWER_ON_STAGE:
-			printf("%s:%d\n", __FILE__, __LINE__);
 			control_power_stage(ENABLE_POWER_MODE, CONTROL_POWER_SEQ_01);
 			control_power_stage(ENABLE_POWER_MODE, CONTROL_POWER_SEQ_02);
 			control_power_stage(ENABLE_POWER_MODE, CONTROL_POWER_SEQ_03);
@@ -164,28 +159,23 @@ bool power_on_handler(uint8_t initial_stage)
 			break;
 		}
 
-		printf("%s:%d\n", __FILE__, __LINE__);
 		k_msleep(CHKPWR_DELAY_MSEC);
 
 		switch (control_stage) { // Check VR power machine
 		case ASIC_POWER_ON_STAGE:
 			if (check_power_stage(ENABLE_POWER_MODE, CHECK_POWER_SEQ_01) != 0) {
-				printf("%s:%d\n", __FILE__, __LINE__);
 				check_power_ret = -1;
 				break;
 			}
 			if (check_power_stage(ENABLE_POWER_MODE, CHECK_POWER_SEQ_02) != 0) {
-				printf("%s:%d\n", __FILE__, __LINE__);
 				check_power_ret = -1;
 				break;
 			}
 			if (check_power_stage(ENABLE_POWER_MODE, CHECK_POWER_SEQ_03) != 0) {
-				printf("%s:%d\n", __FILE__, __LINE__);
 				check_power_ret = -1;
 				break;
 			}
 			if (check_power_stage(ENABLE_POWER_MODE, CHECK_POWER_SEQ_04) != 0) {
-				printf("%s:%d\n", __FILE__, __LINE__);
 				check_power_ret = -1;
 				break;
 			}
