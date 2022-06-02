@@ -7,8 +7,6 @@
 #include "plat_power_seq.h"
 
 #define POWER_SEQ_CTRL_STACK_SIZE 1000
-#define E1S_DEV_PWR_OFF 0
-#define E1S_DEV_PWR_ON  1
 
 K_THREAD_STACK_DEFINE(power_thread, POWER_SEQ_CTRL_STACK_SIZE);
 struct k_thread power_thread_handler;
@@ -17,8 +15,6 @@ k_tid_t power_tid;
 K_THREAD_STACK_DEFINE(e1s_power_thread, POWER_SEQ_CTRL_STACK_SIZE);
 struct k_thread e1s_power_thread_handler;
 k_tid_t e1s_power_tid;
-
-void control_e1s_power_sequence(void);
 
 void ISR_CL_DC_ON()
 {

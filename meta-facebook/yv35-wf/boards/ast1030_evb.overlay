@@ -79,7 +79,7 @@
 &i2c9 {
 	pinctrl-0 = <&pinctrl_i2c9_default>;
   status = "okay";
-  clock-frequency = <I2C_BITRATE_FAST_PLUS>;
+  clock-frequency = <I2C_BITRATE_FAST>;
 };
 
 &udc {
@@ -125,7 +125,7 @@
 };
 
 &gpio0_a_d {
-  aspeed,persist-maps = <0xB9090008>;
+  aspeed,persist-maps = <0xB9290028>;
 };
 
 &gpio0_e_h {
