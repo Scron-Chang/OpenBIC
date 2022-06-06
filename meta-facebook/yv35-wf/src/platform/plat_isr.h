@@ -8,5 +8,6 @@ void control_power_sequence();
 void init_power_on_thread();
 void init_power_off_thread();
 void abort_power_thread();
+void control_e1s_power_sequence(void);
 
 #endif

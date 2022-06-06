@@ -9,8 +9,10 @@
 &adc1 {
 	status = "okay";
 	pinctrl-0 = <  
-				&pinctrl_adc8_default &pinctrl_adc9_default
-				&pinctrl_adc11_default &pinctrl_adc13_default
+				&pinctrl_adc8_default
+				&pinctrl_adc9_default
+				&pinctrl_adc11_default
+				&pinctrl_adc13_default
 				>;
 };
 
@@ -39,25 +41,26 @@
 };
 
 &i2c4 {
-  pinctrl-0 = <&pinctrl_i2c3_default>;
+  pinctrl-0 = <&pinctrl_i2c4_default>;
   status = "okay";
   clock-frequency = <I2C_BITRATE_FAST>;
 };
 
 &i2c5 {
-  pinctrl-0 = <&pinctrl_i2c3_default>;
+  pinctrl-0 = <&pinctrl_i2c5_default>;
   status = "okay";
   clock-frequency = <I2C_BITRATE_FAST>;
 };
 
 &i2c6 {
-  pinctrl-0 = <&pinctrl_i2c3_default>;
+  pinctrl-0 = <&pinctrl_i2c6_default>;
   status = "okay";
   clock-frequency = <I2C_BITRATE_FAST>;
+
 };
 
 &i2c8 {
-  pinctrl-0 = <&pinctrl_i2c3_default>;
+  pinctrl-0 = <&pinctrl_i2c8_default>;
   status = "okay";
   clock-frequency = <I2C_BITRATE_FAST>;
 
@@ -76,7 +79,7 @@
 &i2c9 {
 	pinctrl-0 = <&pinctrl_i2c9_default>;
   status = "okay";
-  clock-frequency = <I2C_BITRATE_FAST_PLUS>;
+  clock-frequency = <I2C_BITRATE_FAST>;
 };
 
 &udc {
@@ -119,6 +122,26 @@
 
 &uart5 {
   current-speed = <57600>;
+};
+
+&gpio0_a_d {
+  aspeed,persist-maps = <0xB9290028>;
+};
+
+&gpio0_e_h {
+  aspeed,persist-maps = <0x0c870402>;
+};
+
+&gpio0_i_l {
+  aspeed,persist-maps = <0x00000400>;
+};
+
+&gpio0_m_p {
+  aspeed,persist-maps = <0xc000c019>;
+};
+
+&gpio0_q_t {
+  aspeed,persist-maps = <0x00000001>;
 };
 
 &jtag1{
