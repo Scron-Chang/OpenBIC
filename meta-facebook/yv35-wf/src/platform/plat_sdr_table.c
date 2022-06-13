@@ -10,7 +10,7 @@
 SDR_Full_sensor plat_sdr_table[] = {
 	/*                Temperature Monitoring              */
 	{
-		// WF P0V9ASICD Temp
+		// WF ASICD Temp
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -68,10 +68,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICD Temp",
+		"WF ASICD Temp",
 	},
 	{
-		// WF P0V9ASICA1 Temp
+		// WF ASICA1 Temp
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -129,10 +129,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA1 Temp",
+		"WF ASICA1 Temp",
 	},
 	{
-		// WF P0V9ASICA2 Temp
+		// WF ASICA2 Temp
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -190,7 +190,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA2 Temp",
+		"WF ASICA2 Temp",
 	},
 	{
 		// WF PVDDQAB Temp
@@ -498,7 +498,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		"WF Temp",
 	},
 	{
-		// WF CXL EMC1412 Temp
+		// CXL EMC1412 Temp
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -556,11 +556,11 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF CXL EMC1412 Temp",
+		"CXL EMC1412 Temp",
 	},	
 	/*                Voltage Monitoring               */
 	{
-		// WF PVPPAB INA230 Vol
+		//PVPP INA230 Vol
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -618,10 +618,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF PVPPAB INA230 Vol",
+		"PVPP_INA230 Vol",
 	},	
 	{
-		// WF 12V E1S INA230 vol
+		//INA230 E1S Vol
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -679,10 +679,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF 12V E1S INA230 vol",
+		"INA230_E1S Vol",
 	},
 	{
-		// WF P0V9ASICD Vol
+		// WF ASICD Vol
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -740,10 +740,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICD Vol",
+		"WF ASICD Vol",
 	},
 	{
-		// WF P0V9ASICA1 Vol
+		// WF ASICA1 Vol
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -801,10 +801,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA1 Vol",
+		"WF ASICA1 Vol",
 	},
 	{
-		// WF P0V9ASICA2 Vol
+		// WF ASICA2 Vol
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -862,7 +862,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA2 Vol",
+		"WF ASICA2 Vol",
 	},
 	{
 		// WF PVDDQAB Vol
@@ -984,7 +984,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF 12V STBY Vol",
+		"WF 12V_STBY Vol",
 	},
 	{
 		// WF 12V E1S Vol
@@ -1045,7 +1045,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF 12V E1S Vol",
+		"WF 12V_E1S Vol",
 	},
 	{
 		// WF 3V3 STBY Vol
@@ -1106,7 +1106,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF 3V3 STBY Vol",
+		"WF 3V3_STBY Vol",
 	},
 	{
 		// WF VDD 1V2 Vol
@@ -1167,7 +1167,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF VDD 1V2 Vol",
+		"WF VDD_1V2 Vol",
 	},
 	{
 		// WF VDD 1V8 Vol
@@ -1228,7 +1228,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF VDD 1V8 Vol",
+		"WF VDD_1V8 Vol",
 	},
 	{
 		// WF 3V3 E1S Vol
@@ -1289,7 +1289,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF 3V3 E1S Vol",
+		"WF 3V3_E1S Vol",
 	},
 	{
 		// WF PVPP2V5AB Vol
@@ -1472,11 +1472,11 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF 5V STBY Vol",
+		"WF 5V_STBY Vol",
 	},
 	/*                Current Monitoring                */
 	{
-		// WF PVPPAB INA230 Cur
+		// PVPP INA230 Cur
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1534,10 +1534,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF PVPPAB INA230 Cur",
+		"PVPP_INA230 Cur",
 	},
 	{
-		// WF E1S 12V INA230 Cur
+		//INA230 E1S Cur
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1595,10 +1595,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF E1S 12V INA230 Cur",
+		"INA230_E1S Cur",
 	},
 	{
-		//WF P0V9ASICD Cur
+		//WF ASICD Cur
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1656,10 +1656,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICD Cur",
+		"WF ASICD Cur",
 	},
 	{
-		//WF P0V9ASICA1 Cur
+		//WF ASICA1 Cur
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1717,10 +1717,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA1 Cur",
+		"WF ASICA1 Cur",
 	},
 	{
-		//WF P0V9ASICA2 Cur
+		//WF ASICA2 Cur
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1778,7 +1778,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA2 Cur",
+		"WF ASICA2 Cur",
 	},
 	{
 		//WF PVDDQAB Cur
@@ -1843,7 +1843,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 	},
 	/*                Power Monitoring                */
 	{
-		//WF PVPPAB INA230 Pwr
+		//PVPP INA230 Pwr
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1901,10 +1901,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF PVPPAB INA230 Pwr",
+		"PVPP_INA230 Pwr",
 	},
 	{
-		//WF E1S 12V INA230 Pwr
+		//INA230 E1S Pwr
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -1962,10 +1962,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF E1S 12V INA230 Pwr",
+		"INA230_E1S Pwr",
 	},
 	{
-		//WF P0V9ASICD Pwr
+		//WF ASICD Pwr
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -2023,10 +2023,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICD Pwr",
+		"WF ASICD Pwr",
 	},
 	{
-		//WF P0V9ASICA1 Pwr
+		//WF ASICA1 Pwr
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -2084,10 +2084,10 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA1 Pwr",
+		"WF ASICA1 Pwr",
 	},
 	{
-		//WF P0V9ASICA2 Pwr
+		//WF ASICA2 Pwr
 		0x00,
 		0x00, // record ID
 		IPMI_SDR_VER_15, // SDR ver
@@ -2145,7 +2145,7 @@ SDR_Full_sensor plat_sdr_table[] = {
 		0x00, // reserved
 		0x00, // OEM
 		IPMI_SDR_STRING_TYPE_ASCII_8, // ID len, should be same as "size of struct"
-		"WF P0V9ASICA2 Pwr",
+		"WF ASICA2 Pwr",
 	},
 	{
 		//WF PVDDQAB Pwr

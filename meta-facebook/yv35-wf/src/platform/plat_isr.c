@@ -20,6 +20,7 @@ void ISR_CL_DC_ON()
 {
 	set_CL_DC_status(FM_POWER_EN);
 	//control_power_sequence();
+	set_DC_on_delayed_status(FM_POWER_EN);
     control_e1s_power_sequence();
 }
 
