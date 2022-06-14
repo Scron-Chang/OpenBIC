@@ -16,6 +16,36 @@ ina233_init_arg ina233_init_args[] = {
 	[1] = { .is_init = false },
 };
 
+ina230_init_arg ina230_init_args[] = {
+	[0] = {
+		.is_init = false,
+		.config = {
+			.MODE = 0b111,		// Measure voltage of shunt resistor and bus(default).
+			.VSH_CT = 0b100,	// The Vshunt conversion time is 1.1ms(default).
+			.VBUS_CT = 0b100,	// The Vbus conversion time is 1.1ms(default).
+			.AVG = 0b000,		// Average number is 1(default).
+		},
+		.alt_cfg = {
+			.LEN = 1,			// Alert Latch enabled.
+			.POL = 1,			// Enable the Over-Limit Power alert function.
+		},
+		.r_shunt = 0.01,
+		.alert_value = 18.0,	// Unit: Watt
+		.i_max = 16.384
+		},
+	[1] = {
+		.is_init = false,
+		.config = {
+			.MODE = 0b111,		// Measure voltage of shunt resistor and bus(default).
+			.VSH_CT = 0b100,	// The Vshunt conversion time is 1.1ms(default).
+			.VBUS_CT = 0b100,	// The Vbus conversion time is 1.1ms(default).
+			.AVG = 0b000,		// Average number is 1(default).
+		},
+		.r_shunt = 0.01,
+		.i_max = 16.384
+		},
+};
+
 /**************************************************************************************************
  *  PRE-HOOK/POST-HOOK ARGS
  **************************************************************************************************/
