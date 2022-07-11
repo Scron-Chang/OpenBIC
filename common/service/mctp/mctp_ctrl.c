@@ -211,7 +211,7 @@ send_msg:
 
 uint8_t mctp_ctrl_send_msg(void *mctp_p, mctp_ctrl_msg *msg)
 {
-	if (!mctp_p || !msg || !msg->cmd_data)
+	if (!mctp_p || !msg || (msg->cmd_data_len > 0 && !msg->cmd_data))
 		return MCTP_ERROR;
 
 	mctp *mctp_inst = (mctp *)mctp_p;

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+#SPDX - License - Identifier : Apache - 2.0
 
 cmake_minimum_required(VERSION 3.13.1)
 
@@ -6,7 +6,7 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(yv35-rf)
 
 set(common_path ../../common)
-FILE(GLOB app_sources src/ipmi/*.c src/platform/*.c src/lib/*.c)
+FILE(GLOB app_sources src/ipmi/*.c src/platform/*.c src/platform/*/*.c src/lib/*.c)
 FILE(GLOB common_sources ${common_path}/service/*.c ${common_path}/service/*/*.c ${common_path}/hal/*.c ${common_path}/dev/*.c ${common_path}/lib/*.c ${common_path}/shell/*.c)
 
 target_sources(app PRIVATE ${app_sources})
