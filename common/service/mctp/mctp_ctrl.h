@@ -20,6 +20,7 @@ typedef struct _mctp_ctrl_cmd_handler {
 
 #define MCTP_CTRL_CMD_SET_ENDPOINT_ID 0x01
 #define MCTP_CTRL_CMD_GET_ENDPOINT_ID 0x02
+#define MCTP_CTRL_CMD_GET_MCTP_VERSION_SUPPORT 0x04
 
 /*
  * MCTP Control Completion Codes
