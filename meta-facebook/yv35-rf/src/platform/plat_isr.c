@@ -26,6 +26,7 @@ void control_power_sequence()
 			// If the last stage of power on sequence already power on , no need to recheck power on sequence
 			// Update the flag of power on sequence number
 			set_power_on_seq(NUMBER_OF_POWER_ON_SEQ);
+			set_DC_on_delayed_status();
 		}
 	} else { // CraterLake DC off
 		if (gpio_get(CLK_100M_OSC_EN) == HIGH_ACTIVE) {
