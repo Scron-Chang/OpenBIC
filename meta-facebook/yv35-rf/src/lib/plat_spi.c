@@ -13,18 +13,18 @@
 
 static bool switch_cxl_spi_mux(int gpio_status)
 {
-	bool ret = false;
-
 	if (gpio_status != CXL_FLASH_TO_BIC && gpio_status != CXL_FLASH_TO_CXL) {
 		printf("[%s] Invalid argument\n", __func__);
+		return false;
 	}
 
 	if (gpio_set(SPI_MASTER_SEL, gpio_status)) {
 		printf("Fail to switch the flash to %s\n",
 		       (gpio_status == CXL_FLASH_TO_BIC) ? "BIC" : "PIONEER");
+		return false;
 	}
 
-	return ret;
+	return true;
 }
 
 static bool control_flash_power(int power_state)
@@ -42,9 +42,13 @@ static bool control_flash_power(int power_state)
 		return false;
 	}
 
-	for (int retry = 3; retry > 0; retry--) {
+	for (int retry = 3;; retry--) {
 		if (gpio_get(P1V8_ASIC_PG_R) == power_state) {
 			return true;
+		}
+
+		if (!retry) {
+			break;
 		}
 
 		control_power_stage(control_mode, P1V8_ASIC_EN_R);
@@ -66,12 +70,12 @@ uint8_t fw_update_cxl(uint32_t offset, uint16_t msg_len, uint8_t *msg_buf, bool 
 	}
 
 	// Enable the P1V8_ASCI to power the flash
-	if (!control_flash_power(POWER_ON)) {
+	if (control_flash_power(POWER_ON) == false) {
 		return FWUPDATE_UPDATE_FAIL;
 	}
 
 	// Set high to choose the BIC as the host
-	if (switch_cxl_spi_mux(CXL_FLASH_TO_BIC)) {
+	if (switch_cxl_spi_mux(CXL_FLASH_TO_BIC) == false) {
 		printf("Fail to switch PIONEER flash to BIC\n");
 		return FWUPDATE_UPDATE_FAIL;
 	}

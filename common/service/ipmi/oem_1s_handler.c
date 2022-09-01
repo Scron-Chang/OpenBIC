@@ -261,6 +261,9 @@ __weak void OEM_1S_FW_UPDATE(ipmi_msg *msg)
 	case FWUPDATE_ERROR_OFFSET:
 		msg->completion_code = CC_PARAM_OUT_OF_RANGE;
 		break;
+	case FWUPDATE_NOT_SUPPORT:
+		msg->completion_code = CC_INVALID_PARAM;
+		break;
 	default:
 		msg->completion_code = CC_UNSPECIFIED_ERROR;
 		break;

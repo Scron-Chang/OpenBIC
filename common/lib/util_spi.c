@@ -353,7 +353,7 @@ uint8_t fw_update(uint32_t offset, uint16_t msg_len, uint8_t *msg_buf, bool sect
 
 __weak uint8_t fw_update_cxl(uint32_t offset, uint16_t msg_len, uint8_t *msg_buf, bool sector_end)
 {
-	return -1;
+	return FWUPDATE_NOT_SUPPORT;
 }
 
 __weak int pal_get_bios_flash_position()
