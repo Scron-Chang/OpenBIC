@@ -76,13 +76,15 @@
 		compatible = "fixed-partitions";
 		#address-cells = <1>;
 		#size-cells = <1>;
-		boot_partition: partition@0 {
+
+		bic_rom: partition@0 {
 			label = "image-0";
-			reg = <0x0 0x100000>;
+			reg = <0x0 0x40000>; // 256KiB
 		};
-		dfu_partition: partition@1 {
-			label = "image-1";
-			reg = <0x0 0x100000>;
+
+		lfs1_part: partition@40000 {
+			label = "storage";
+			reg = <0x40000 0xC0000>;
 		};
 	};
 };
@@ -124,4 +126,21 @@
 
 &gpio0_e_h {
   aspeed,persist-maps = <0x00000402>;
+};
+
+/ {
+	fstab {
+		lfs1: lfs1 {
+			mount-point = "/lfs1";
+			partition = <&lfs1_part>;
+			automount;
+
+			compatible = "zephyr,fstab,littlefs";
+			read-size = <16>;
+			prog-size = <16>;
+			cache-size = <64>;
+			lookahead-size = <32>;
+			block-cycles = <512>;
+		};
+	};
 };
