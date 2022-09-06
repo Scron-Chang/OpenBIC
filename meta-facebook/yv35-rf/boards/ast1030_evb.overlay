@@ -76,13 +76,10 @@
 		compatible = "fixed-partitions";
 		#address-cells = <1>;
 		#size-cells = <1>;
-		boot_partition: partition@0 {
+
+		bic_rom: partition@0 {
 			label = "image-0";
-			reg = <0x0 0x100000>;
-		};
-		dfu_partition: partition@1 {
-			label = "image-1";
-			reg = <0x0 0x100000>;
+			reg = <0 DT_SIZE_K(1024)>; // 1 MiB
 		};
 	};
 };
@@ -94,8 +91,19 @@
 &spi1_cs0 {
 	status = "okay";
 	spi-max-buswidth = <4>;
-	spi-max-frequency = <3125000>;
+	spi-max-frequency = <50000000>;
 	re-init-support;
+
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		lfs1_part: partition@0 {
+			label = "storage";
+			reg = <0 DT_SIZE_K(1024)>; // 1MiB
+		};
+	};
 };
 
 &uart5 {
@@ -124,4 +132,25 @@
 
 &gpio0_e_h {
   aspeed,persist-maps = <0x00000402>;
+};
+
+&sram0 {
+	reg = <0 DT_SIZE_K(752)>, <DT_SIZE_K(752) DT_SIZE_K(16)>;
+};
+
+/ {
+	fstab {
+		lfs1: lfs1 {
+			mount-point = "/lfs1";
+			partition = <&lfs1_part>;
+			automount;
+
+			compatible = "zephyr,fstab,littlefs";
+			read-size = <16>;
+			prog-size = <16>;
+			cache-size = <64>;
+			lookahead-size = <32>;
+			block-cycles = <512>;
+		};
+	};
 };

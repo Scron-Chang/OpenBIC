@@ -20,6 +20,7 @@
 #include "plat_isr.h"
 #include "plat_power_seq.h"
 #include "power_status.h"
+#include "plat_sel.h"
 
 SCU_CFG scu_cfg[] = {
 	//register    value
@@ -47,6 +48,8 @@ void pal_post_init()
 	k_usleep(100);
 
 	gpio_set(ASIC_DEV_RST_N, GPIO_HIGH);
+
+	plat_sel_init();
 }
 
 #define DEF_PROJ_GPIO_PRIORITY 61
