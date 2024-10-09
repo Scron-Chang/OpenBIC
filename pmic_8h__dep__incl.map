@@ -1,0 +1,9 @@
+<map id="common/dev/include/pmic.h" name="common/dev/include/pmic.h">
+<area shape="rect" id="node1" title=" " alt="" coords="445,5,587,47"/>
+<area shape="rect" id="node2" href="$pmic_8c.html" title=" " alt="" coords="5,109,144,136"/>
+<area shape="rect" id="node3" href="$oem__1s__handler_8c.html" title=" " alt="" coords="168,102,315,143"/>
+<area shape="rect" id="node4" href="$wc-mb_2src_2platform_2plat__hook_8c.html" title=" " alt="" coords="339,102,504,143"/>
+<area shape="rect" id="node5" href="$wc-mb_2src_2platform_2plat__pmic_8c.html" title=" " alt="" coords="528,102,693,143"/>
+<area shape="rect" id="node6" href="$yv35-cl_2src_2platform_2plat__hook_8c.html" title=" " alt="" coords="717,95,856,151"/>
+<area shape="rect" id="node7" href="$yv35-cl_2src_2platform_2plat__pmic_8c.html" title=" " alt="" coords="880,95,1019,151"/>
+</map>

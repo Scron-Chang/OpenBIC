@@ -1,0 +1,9 @@
+<map id="pal_extend_sensor_config" name="pal_extend_sensor_config">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,176,57"/>
+<area shape="rect" id="node2" href="$sensor_8c.html#a9a9c8c18214656907ffea9e2094cc135" title=" " alt="" coords="224,5,355,32"/>
+<area shape="rect" id="node4" href="$yv35-cl_2src_2platform_2plat__sensor__table_8c.html#a27d80151140f2515b79d867ef7ea7446" title=" " alt="" coords="236,56,343,83"/>
+<area shape="rect" id="node3" href="$sensor_8c.html#ae03efb5137803d0089d8ba74c17fb98f" title=" " alt="" coords="403,5,567,32"/>
+<area shape="rect" id="node5" href="$hal__i2c_8c.html#a10a12888a55c2d866fcf01cbd342652f" title=" " alt="" coords="425,56,544,83"/>
+<area shape="rect" id="node7" href="$hal__i2c_8c.html#a044cf163a5942b056d4a4feb0c056e9e" title=" " alt="" coords="424,107,545,133"/>
+<area shape="rect" id="node6" href="$hal__i2c_8c.html#abe0116512c803f4b7188c17345eb998f" title=" " alt="" coords="615,81,757,108"/>
+</map>

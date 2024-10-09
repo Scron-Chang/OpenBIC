@@ -1,0 +1,8 @@
+<map id="load_sensor_config" name="load_sensor_config">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,139,57"/>
+<area shape="rect" id="node2" href="$gt-cc_2src_2platform_2plat__sensor__table_8c.html#a39b3dfcf8d0fe5ec77f349ab2ae33c04" title=" " alt="" coords="187,31,357,57"/>
+<area shape="rect" id="node3" href="$yv35-cl_2src_2platform_2plat__sensor__table_8c.html#a27d80151140f2515b79d867ef7ea7446" title=" " alt="" coords="405,31,512,57"/>
+<area shape="rect" id="node4" href="$hal__i2c_8c.html#a10a12888a55c2d866fcf01cbd342652f" title=" " alt="" coords="561,5,680,32"/>
+<area shape="rect" id="node6" href="$hal__i2c_8c.html#a044cf163a5942b056d4a4feb0c056e9e" title=" " alt="" coords="560,56,681,83"/>
+<area shape="rect" id="node5" href="$hal__i2c_8c.html#abe0116512c803f4b7188c17345eb998f" title=" " alt="" coords="729,31,872,57"/>
+</map>

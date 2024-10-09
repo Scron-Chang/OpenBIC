@@ -1,0 +1,10 @@
+<map id="common/service/ipmi/include/storage_handler.h" name="common/service/ipmi/include/storage_handler.h">
+<area shape="rect" id="node1" title=" " alt="" coords="163,5,336,47"/>
+<area shape="rect" id="node2" href="$ipmi_8c.html" title=" " alt="" coords="5,95,152,136"/>
+<area shape="rect" id="node3" href="$storage__handler_8c.html" title=" " alt="" coords="176,95,323,136"/>
+<area shape="rect" id="node4" href="$plat__mctp_8h.html" title=" " alt="" coords="347,95,514,136"/>
+<area shape="rect" id="node5" href="$gt-cc_2src_2ipmi_2plat__ipmi_8c.html" title=" " alt="" coords="99,184,240,225"/>
+<area shape="rect" id="node6" href="$gt-cc_2src_2platform_2plat__init_8c.html" title=" " alt="" coords="264,184,419,225"/>
+<area shape="rect" id="node7" href="$gt-cc_2src_2platform_2plat__isr_8c.html" title=" " alt="" coords="443,184,594,225"/>
+<area shape="rect" id="node8" href="$plat__mctp_8c.html" title=" " alt="" coords="618,184,785,225"/>
+</map>
